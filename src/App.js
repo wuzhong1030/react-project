@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Topic from './pages/Topic'
 import { GlobalStyle } from './styled'
+import { IconfontStyle } from './static/iconfont/index.js'
 
 import MHeader from './common/header'
 
@@ -13,6 +14,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <GlobalStyle />
+            <IconfontStyle />
             <MHeader></MHeader>
             <Route extra path="/" render={() => <div>111</div>} />
             <Route extra path="/topic" component={Topic} />

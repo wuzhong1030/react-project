@@ -33,13 +33,42 @@ export const NavItem = styled.div`
     line-height: 56px;
     font-size: 17px;
     padding: 0 14px;
+    &:hover {
+        cursor: pointer;
+    }
+    .iconfont {
+        margin-right: 5px;
+    }
     &.left {
         float: left;
         color: #ea6f5a;
+        &.download {
+            color: #333;
+        }
     }
     &.right {
         float: right;
         color: #969696;
+    }
+`
+
+export const SearchWrapper = styled.div`
+    position: relative;
+    height: 38px;
+    margin-top: 9px;
+    float: left;
+    .iconfont {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        color: #999;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border-radius: 50%;
+        background: red;
+        transform: translateY(-50%);
     }
 `
 
@@ -48,7 +77,6 @@ export const NavSearch = styled.input.attrs({
 })`
     width: 160px;
     height: 38px;
-    margin-top: 9px;
     margin-left: 20px;
     outline: none;
     border: none;
@@ -76,11 +104,15 @@ export const Addtion = styled.div`
         border-radius: 20px;
         font-size: 15px;
         text-align: center;
+        &:hover {
+            cursor: pointer;
+        }
         &.reg {
             color: #ea6f5a;
             background-color: transparent;
         }
         &.writing {
+            width: 100px;
             margin-left: 20px;
             color: #fff;
             background-color: #ea6f5a;
