@@ -3,7 +3,7 @@ import logoPic from '../../static/logo.png'
 
 export const HeaderWrapper = styled.div`
     position: relative;
-    padding: 0 200px;
+    padding: 0 300px 0 200px;
     height: 58px;
     border-bottom: 1px solid #f0f0f0;
     background-color: #fff;
@@ -35,11 +35,11 @@ export const NavItem = styled.div`
     padding: 0 14px;
     &.left {
         float: left;
-        color: #969696;
+        color: #ea6f5a;
     }
     &.right {
         float: right;
-        color: #ea6f5a;
+        color: #969696;
     }
 `
 
@@ -58,5 +58,32 @@ export const NavSearch = styled.input.attrs({
     font-size: 14px;
     &::placeholder {
         color: #999;
+    }
+`
+
+export const Addtion = styled.div`
+    position: absolute;
+    right: 30px;
+    top: 0;
+    height: 58px;
+    line-height: 58px;
+    a {
+        display: inline-block;
+        width: 80px;
+        height: 38px;
+        line-height: 38px;
+        border: 1px solid rgba(236,97,73,.7);
+        border-radius: 20px;
+        font-size: 15px;
+        text-align: center;
+        &.reg {
+            color: #ea6f5a;
+            background-color: transparent;
+        }
+        &.writing {
+            margin-left: 20px;
+            color: #fff;
+            background-color: #ea6f5a;
+        }
     }
 `
