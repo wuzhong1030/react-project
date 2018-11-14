@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
+import { Provider } from 'react-redux'
 import Topic from './pages/Topic'
 import { GlobalStyle } from './styled'
 import { IconfontStyle } from './static/iconfont/index.js'
 
 import MHeader from './common/header'
-import About from './pages/About';
+import About from './pages/About'
+
+import store from './store'
 
 class App extends Component {
   render() {
     return (
-      <div>
+      <Provider store={store}>
         <BrowserRouter>
           <div>
             <GlobalStyle />
@@ -21,7 +24,7 @@ class App extends Component {
             <Route extra path="/about" component={About} />
           </div>
         </BrowserRouter>
-      </div>
+      </Provider>
     )
   }
 }
