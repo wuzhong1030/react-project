@@ -9,6 +9,7 @@ import {
   Addtion
 } from "./styled";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 const MHeader = props => {
   return (
@@ -22,7 +23,9 @@ const MHeader = props => {
           <i className="iconfont">&#xe652;</i>下载APP
         </NavItem>
         <NavItem className="right">Aa</NavItem>
-        <NavItem className="right">登录</NavItem>
+        <NavItem className="right">
+          <Link to={{ pathname: "/login" }}>登录</Link>
+        </NavItem>
         <SearchWrapper>
           <NavSearch
             className={props.focused ? "focused" : ""}

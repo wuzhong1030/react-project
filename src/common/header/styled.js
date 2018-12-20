@@ -5,6 +5,7 @@ export const HeaderWrapper = styled.div`
   position: relative;
   padding: 0 300px 0 200px;
   height: 58px;
+  box-sizing: border-box;
   border-bottom: 1px solid #f0f0f0;
   background-color: #fff;
 `;
@@ -48,6 +49,11 @@ export const NavItem = styled.div`
   &.right {
     float: right;
     color: #969696;
+    a {
+      color: inherit;
+      text-decoration: none;
+      outline: none;
+    }
   }
 `;
 
