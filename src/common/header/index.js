@@ -13,11 +13,6 @@ import { connect } from "react-redux";
 const MHeader = props => {
   return (
     <HeaderWrapper>
-      <style jsx>{`
-        .hero {
-			left: 200px;
-        }
-      `}</style>
       <Logo />
       <Nav>
         <NavItem className="left">
