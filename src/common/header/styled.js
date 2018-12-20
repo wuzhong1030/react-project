@@ -72,6 +72,9 @@ export const SearchWrapper = styled.div`
       background: #777;
       color: #fff;
     }
+    &:hover {
+      cursor: pointer;
+    }
   }
 `;
 
