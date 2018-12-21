@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import { GlobalStyle } from "./styled";
@@ -15,6 +10,7 @@ import MHeader from "./common/header";
 import store from "./store";
 
 import { TransitionGroup, CSSTransition } from "react-transition-group";
+import AnimatedRouter from "./utils/AnimatedRouter";
 
 const AsyncTopic = AsyncComponent(() => import("./pages/Topic"));
 const AsyncLogin = AsyncComponent(() => import("./pages/login"));
@@ -25,26 +21,20 @@ const App = props => {
   return (
     <Provider store={store}>
       <Router>
-        <Route
-          render={({ location }) => (
-            <div>
-              <GlobalStyle />
-              <IconfontStyle />
-              <MHeader />
-              <TransitionGroup>
-                <CSSTransition classNames="fade" timeout={3000}>
-                  <Switch location={location}>
-                    <Route exact path="/" render={() => <div>111</div>} />
-                    <Route path="/topic" component={AsyncTopic} />
-                    <Route path="/register" component={AsyncRegister} />
-                    <Route path="/login" component={AsyncLogin} />
-                    <Route render={props => <AsyncNoMatch {...props} />} />
-                  </Switch>
-                </CSSTransition>
-              </TransitionGroup>
-            </div>
-          )}
-        />
+        <div>
+          <GlobalStyle />
+          <IconfontStyle />
+          <MHeader />
+          <Switch>
+            <AnimatedRouter>
+              <Route exact path="/" render={() => <div>111</div>} />
+              <Route path="/topic" component={AsyncTopic} />
+              <Route path="/register" component={AsyncRegister} />
+              <Route path="/login" component={AsyncLogin} />
+              <Route render={props => <AsyncNoMatch {...props} />} />
+            </AnimatedRouter>
+          </Switch>
+        </div>
       </Router>
     </Provider>
   );

@@ -41,7 +41,7 @@ const MHeader = props => {
         <Link className="reg" to={{ pathname: "/register" }}>
           注册
         </Link>
-        <a className="writing">
+        <a className="writing" href="/writing">
           <i className="iconfont">&#xe603;</i>写文章
         </a>
       </Addtion>
