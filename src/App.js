@@ -1,35 +1,36 @@
-import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
-import Topic from "./pages/Topic";
+
 import { GlobalStyle } from "./styled";
 import { IconfontStyle } from "./static/iconfont/index.js";
 
+import AsyncComponent from "./utils/AsyncComponent";
 import MHeader from "./common/header";
 import store from "./store";
-import Login from "./pages/login";
-import NoMatch from "./common/NoMatch";
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <BrowserRouter>
-          <div>
-            <GlobalStyle />
-            <IconfontStyle />
-            <MHeader />
-            <Switch>
-              <Route exact path="/" render={() => <div>111</div>} />
-              <Route path="/topic" component={Topic} />
-              <Route path="/login" component={Login} />
-              <Route component={NoMatch} />
-            </Switch>
-          </div>
-        </BrowserRouter>
-      </Provider>
-    );
-  }
-}
+const AsyncTopic = AsyncComponent(() => import("./pages/Topic"));
+const AsyncLogin = AsyncComponent(() => import("./pages/login"));
+const AsyncNoMatch = AsyncComponent(() => import("./common/NoMatch"));
+
+const App = props => {
+  return (
+    <Provider store={store}>
+      <Router>
+        <div>
+          <GlobalStyle />
+          <IconfontStyle />
+          <MHeader />
+          <Switch>
+            <Route exact path="/" render={() => <div>111</div>} />
+            <Route path="/topic" component={AsyncTopic} />
+            <Route path="/login" component={AsyncLogin} />
+            <Route render={props => <AsyncNoMatch {...props} />} />
+          </Switch>
+        </div>
+      </Router>
+    </Provider>
+  );
+};
 
 export default App;
