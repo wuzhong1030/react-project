@@ -49,11 +49,7 @@ export const NavItem = styled.div`
   &.right {
     float: right;
     color: #969696;
-    a {
-      color: inherit;
-      text-decoration: none;
-      outline: none;
-    }
+    
   }
 `;
 

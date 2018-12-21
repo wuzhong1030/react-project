@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     html, body, div, span, applet, object, iframe,
@@ -46,4 +46,17 @@ export const GlobalStyle = createGlobalStyle`
         border-collapse: collapse;
         border-spacing: 0;
     }
-`
+    a {
+        color: inherit;
+        text-decoration: none;
+        outline: none;
+      }
+    .fade-enter {
+        opacity: 0;
+        z-index: 1;
+      }
+      .fade-enter.fade-enter-active {
+        opacity: 1;
+        transition: opacity 250ms ease-in;
+      }
+`;

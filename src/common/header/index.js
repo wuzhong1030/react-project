@@ -38,7 +38,9 @@ const MHeader = props => {
         </SearchWrapper>
       </Nav>
       <Addtion>
-        <a className="reg">注册</a>
+        <Link className="reg" to={{ pathname: "/register" }}>
+          注册
+        </Link>
         <a className="writing">
           <i className="iconfont">&#xe603;</i>写文章
         </a>
