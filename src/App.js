@@ -1,21 +1,18 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Provider } from "react-redux";
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
-import { GlobalStyle } from "./styled";
-import { IconfontStyle } from "./static/iconfont/index.js";
+import { GlobalStyle } from './styled';
+import { IconfontStyle } from './static/iconfont/index.js';
 
-import AsyncComponent from "./utils/AsyncComponent";
-import MHeader from "./common/header";
-import store from "./store";
+import AsyncComponent from './utils/AsyncComponent';
+import MHeader from './common/header';
+import store from './store';
 
-import { TransitionGroup, CSSTransition } from "react-transition-group";
-import AnimatedRouter from "./utils/AnimatedRouter";
-
-const AsyncTopic = AsyncComponent(() => import("./pages/Topic"));
-const AsyncLogin = AsyncComponent(() => import("./pages/login"));
-const AsyncNoMatch = AsyncComponent(() => import("./common/NoMatch"));
-const AsyncRegister = AsyncComponent(() => import("./pages/Register"));
+const AsyncTopic = AsyncComponent(() => import('./pages/Topic'));
+const AsyncLogin = AsyncComponent(() => import('./pages/login'));
+const AsyncNoMatch = AsyncComponent(() => import('./common/NoMatch'));
+const AsyncRegister = AsyncComponent(() => import('./pages/Register'));
 
 const App = props => {
   return (
@@ -26,13 +23,11 @@ const App = props => {
           <IconfontStyle />
           <MHeader />
           <Switch>
-            <AnimatedRouter>
-              <Route exact path="/" render={() => <div>111</div>} />
-              <Route path="/topic" component={AsyncTopic} />
-              <Route path="/register" component={AsyncRegister} />
-              <Route path="/login" component={AsyncLogin} />
-              <Route render={props => <AsyncNoMatch {...props} />} />
-            </AnimatedRouter>
+            <Route exact path="/" render={() => <div>111</div>} />
+            <Route path="/topic" component={AsyncTopic} />
+            <Route path="/register" component={AsyncRegister} />
+            <Route path="/login" component={AsyncLogin} />
+            <Route render={props => <AsyncNoMatch {...props} />} />
           </Switch>
         </div>
       </Router>
